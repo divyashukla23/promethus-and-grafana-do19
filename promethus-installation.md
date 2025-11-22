@@ -8,5 +8,14 @@ Steps to install promethus :
 7. kubectl get svc -n monitoring
 8. kubectl port-forward -n monitoring svc/prometheus-server 9090:80
 
+edit scrape config : 
+- kubectl edit cm prometheus-server -n monitoring
+
+under scrape_configs:
+- job_name: 'myapp'
+  static_configs:
+  - targets: ['myapp.monitoring.svc.cluster.local:9100']
+
+
 
 
