@@ -17,5 +17,9 @@ under scrape_configs:
   - targets: ['myapp.monitoring.svc.cluster.local:9100']
 
 
+restart promethus: 
+kubectl rollout restart deployment prometheus-server -n monitoring
+
+
 
 
